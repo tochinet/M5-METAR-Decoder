@@ -24,9 +24,10 @@ String version_num = "METAR ESP Version 5.1";
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
 #include <M5Stack.h>
+#include "WiFiCredentials.h" // Move the WiFi SSID and Password in a separate file for convenience and security
+//const char *ssid      = "your_SSID";
+//const char *password  = "your_PASSWORD";
 
-const char *ssid      = "your_SSID";
-const char *password  = "your_PASSWORD";
 const char* host      = "aviationweather.gov";
 const int   httpsPort = 443;
 
@@ -57,13 +58,12 @@ void setup(){
 
 void loop(){
   // Change these METAR Stations to suit your needs see: Use this URL address = ftp://tgftp.nws.noaa.gov/data/observations/metar/decoded/ 
-  // to establish your list of sites to retrieve (you must know the 4-letter 
-  // site dentification)
-  GET_METAR("EGGD", "1 EGGD Bristol/Lulsgate");
-  GET_METAR("EGVN", "2 EGVN Brize Norton");
-  GET_METAR("EGCC", "3 EGCC Manchester Airport");
-  GET_METAR("EGHQ", "4 EGHQ Newquay");
-  GET_METAR("EGSS", "5 EGSS Stansted");
+  // to establish your list of sites to retrieve (the 4-letter sites are at https://www.aviationweather.gov/docs/metar/stations.txt)
+  GET_METAR("EBLG", "1 EBLG Bierset");
+  GET_METAR("EBBR", "2 EBR Zaventem");
+  GET_METAR("EBTY", "3 EBTY Maubray");
+  GET_METAR("LPFR", "4 LPFR Faro");
+  GET_METAR("DTTJ", "5 DTTJ Djerba");
 } 
 
 //----------------------------------------------------------------------------------------------------
